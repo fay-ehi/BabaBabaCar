@@ -26,7 +26,7 @@ export default function Comfort() {
             transition={{ duration: 0.7 }}
           >
             <span className="inline-block px-3 py-1 bg-white/10 text-white/60 text-xs font-semibold rounded-full mb-6">
-              The Baba Baba Car difference
+              The SYNQ RIDE difference
             </span>
             <h2 className="text-[2rem] sm:text-[2.75rem] font-extrabold text-white mb-6 leading-tight"
               style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>

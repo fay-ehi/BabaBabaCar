@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Baba Baba Car — Comfortable Intercity Travel",
+  title: "Synq Ride — Comfortable Intercity Travel",
   description: "Verified, comfortable shared rides between Nigerian cities. Find a trusted ride or share your trip with verified travelers.",
   keywords: "intercity travel Nigeria, shared rides Nigeria, Lagos Ibadan ride, Abuja Kaduna ride, carpooling Nigeria",
 };

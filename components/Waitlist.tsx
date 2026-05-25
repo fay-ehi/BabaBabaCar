@@ -53,7 +53,7 @@ export default function Waitlist() {
               Be among the first to travel smarter
             </h2>
             <p className="text-gray-500 text-lg leading-relaxed mb-8">
-              We&apos;re building Baba Baba Car carefully — starting with a focused group of early travelers and drivers. Join the waitlist to get early access, route updates, and help shape how we grow.
+              We&apos;re building SYNQ RIDE carefully — starting with a focused group of early travelers and drivers. Join the waitlist to get early access, route updates, and help shape how we grow.
             </p>
 
             <div className="space-y-4">
@@ -106,7 +106,7 @@ export default function Waitlist() {
                   We&apos;ll reach out when your route is ready or when we launch in your area. Thank you for being an early believer.
                 </p>
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#EFF6FF] text-[#1D4ED8] text-sm font-semibold rounded-xl">
-                  🎉 Welcome to Baba Baba Car
+                  🎉 Welcome to SYNQ RIDE
                 </div>
               </div>
             ) : (

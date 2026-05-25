@@ -6,8 +6,8 @@ import { Plus } from "lucide-react";
 
 const faqs = [
   {
-    q: "How is Baba Baba Car different from taking a regular bus?",
-    a: "With a regular bus or shared taxi, you usually wait at the park until the vehicle is completely full, which can sometimes take hours. With Baba Baba Car, you book your seat in advance, know exactly who your driver is, and leave at the agreed time. The experience is calmer, more comfortable, and far more predictable.",
+    q: "How is SYNQ RIDE different from taking a regular bus?",
+    a: "With a regular bus or shared taxi, you usually wait at the park until the vehicle is completely full, which can sometimes take hours. With SYNQ RIDE, you book your seat in advance, know exactly who your driver is, and leave at the agreed time. The experience is calmer, more comfortable, and far more predictable.",
   },
   {
     q: "How do you verify drivers?",
@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: "Can I travel alone or do I have to share?",
-    a: "Baba Baba Car is designed as a shared ride platform, so you’ll typically travel with 1 to 3 other verified passengers. This helps keep rides affordable while also making trips feel more social and less isolating than traditional transport options. Everyone on the ride goes through the same verification process.",
+    a: "SYNQ RIDE is designed as a shared ride platform, so you’ll typically travel with 1 to 3 other verified passengers. This helps keep rides affordable while also making trips feel more social and less isolating than traditional transport options. Everyone on the ride goes through the same verification process.",
   },
   {
     q: "How do payments work?",

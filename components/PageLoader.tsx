@@ -33,7 +33,7 @@ export default function PageLoader() {
             <div className="flex items-center justify-center">
               <Image
                 src="/logo.png"
-                alt="Baba Baba Car Logo"
+                alt="SYNQ RIDE Logo"
                 width={80}
                 height={80}
                 className="object-contain"
@@ -51,7 +51,7 @@ export default function PageLoader() {
                 fontFamily: "'Bricolage Grotesque', sans-serif",
               }}
             >
-              Baba Baba Car
+              SYNQ RIDE
             </motion.p>
 
             {/* Animated Road */}

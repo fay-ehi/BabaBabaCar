@@ -37,7 +37,7 @@ export default function Navbar() {
           <a href="#" className="flex items-center gap-3 group">
             <Image
               src="/logo.png"
-              alt="Baba Baba Car Logo"
+              alt="SYNQ RIDE Logo"
               width={50}
               height={50}
               className="object-contain"
@@ -51,7 +51,7 @@ export default function Navbar() {
                 fontWeight: 700,
               }}
             >
-              Baba Baba Car
+              SYNQ RIDE
             </span>
           </a>
 

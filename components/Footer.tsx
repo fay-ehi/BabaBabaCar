@@ -23,7 +23,7 @@ export default function Footer() {
                 </svg>
               </div>
               <span className="font-extrabold text-white text-lg"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Baba Baba Car</span>
+                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>SYNQ RIDE</span>
             </div>
             <p className="text-white/40 text-sm leading-relaxed max-w-xs mb-6">
               Modern, verified intercity ride-sharing for Nigeria. Comfortable travel between cities, built on trust.
@@ -62,7 +62,7 @@ export default function Footer() {
 
         <div className="border-t border-white/8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/30">
-            © {new Date().getFullYear()} Baba Baba Car. All rights reserved. Made in Nigeria.
+            © {new Date().getFullYear()} SYNQ RIDE. All rights reserved. Made in Nigeria.
           </p>
           <p className="text-xs text-white/25 text-center sm:text-right">
             Connecting cities. Building trust. One ride at a time.
