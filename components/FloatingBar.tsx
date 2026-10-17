@@ -41,17 +41,17 @@ export default function FloatingBar() {
 
             {/* Text */}
             <div className="flex-1 min-w-0">
-              <p className="text-white text-xs font-semibold leading-tight">Join the waitlist — it&apos;s free</p>
-              <p className="text-white/40 text-[10px] truncate">Be first when your route goes live</p>
+              <p className="text-white text-xs font-semibold leading-tight">Apply to drive with SYNQ RIDE</p>
+              <p className="text-white/40 text-[10px] truncate">Poland and USA launching first</p>
             </div>
 
             {/* CTA */}
             <a
-              href="#waitlist"
+              href="#apply"
               onClick={() => setDismissed(true)}
               className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#1D4ED8] text-white text-xs font-bold rounded-xl whitespace-nowrap hover:bg-[#1e40af] transition-colors"
             >
-              Join
+              Apply
               <ArrowRight size={12} />
             </a>
 

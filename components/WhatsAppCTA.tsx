@@ -20,12 +20,12 @@ export default function WhatsAppCTA() {
               </svg>
             </div>
             <div>
-              <p className="text-sm font-bold text-gray-900">Have questions? Chat with us on WhatsApp</p>
-              <p className="text-xs text-gray-500 mt-0.5">We reply fast. Real people, no bots.</p>
+              <p className="text-sm font-bold text-gray-900">Prefer to talk? Message us on WhatsApp</p>
+              <p className="text-xs text-gray-500 mt-0.5">Ask about vehicles, requirements or partnering with us.</p>
             </div>
           </div>
           <a
-            href="https://wa.me/2347039968323?text=Hi%2C%20I%20have%20a%20question%20about%20SYNQ%20RIDE"
+            href="https://wa.me/2347039968323?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20driving%20with%20SYNQ%20RIDE"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#25D366] text-white text-sm font-semibold rounded-xl hover:bg-[#1ebe5d] transition-all duration-200 shadow-sm whitespace-nowrap group"

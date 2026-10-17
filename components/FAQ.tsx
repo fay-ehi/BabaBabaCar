@@ -6,24 +6,33 @@ import { Plus } from "lucide-react";
 
 const faqs = [
   {
-    q: "How is SYNQ RIDE different from taking a regular bus?",
-    a: "With a regular bus or shared taxi, you usually wait at the park until the vehicle is completely full, which can sometimes take hours. With SYNQ RIDE, you book your seat in advance, know exactly who your driver is, and leave at the agreed time. The experience is calmer, more comfortable, and far more predictable.",
+    q: "Who owns the cars?",
+    a: "Bablo owns the vehicles. You use the car as a driver, either on a weekly rental or on a drive-to-own agreement. If you choose drive-to-own, the car moves to you once the agreement is completed.",
   },
   {
-    q: "How do you verify drivers?",
-    a: "Every driver goes through identity checks, vehicle inspections, and plate verification before they’re allowed to offer trips on the platform. We also collect ratings and trip feedback after every journey, so drivers remain accountable over time. Before booking, you’ll always be able to see a driver’s profile, rating, and verification status.",
+    q: "Which apps can I drive for?",
+    a: "We set your car up to work with the platforms you choose. In Poland that is typically Uber, Bolt and FreeNow, and in the USA Uber and Lyft. What's available to you depends on your city and each platform's own rules, and we'll confirm it when you apply.",
   },
   {
-    q: "Is this only for specific cities?",
-    a: "We’re launching with a few high-demand routes first — Lagos ↔ Ibadan, Abuja ↔ Kaduna, and Enugu ↔ Owerri. More routes will follow shortly after launch. If your preferred route isn’t available yet, you can still join the waitlist and get notified once it goes live.",
+    q: "How much does it cost?",
+    a: "You pay a weekly amount that is agreed before you take the car. The exact rate and structure are confirmed when you're approved, because they depend on your country, city and the vehicle.",
   },
   {
-    q: "Can I travel alone or do I have to share?",
-    a: "SYNQ RIDE is designed as a shared ride platform, so you’ll typically travel with 1 to 3 other verified passengers. This helps keep rides affordable while also making trips feel more social and less isolating than traditional transport options. Everyone on the ride goes through the same verification process.",
+    q: "Do I need my own licence or permit to drive?",
+    a: "Yes. You need a valid driving licence and whatever your city requires to work as a ride-hailing driver. That can include a criminal-record certificate and medical checks. We tell you exactly what applies to you and help you through it.",
+  },
+ 
+  {
+    q: "Am I an employee of SYNQ RIDE?",
+    a: "No. You drive as an independent driver on the platforms you choose. SYNQ RIDE provides the vehicle and the support around it.",
   },
   {
-    q: "How do payments work?",
-    a: "Payment details will be finalized at launch, but we’re building around Nigerian payment methods including bank transfer, cards, and mobile payments.",
+    q: "I have used cars. Can I work with you?",
+    a: "Yes. We're looking for dealers, leasing companies and fleet owners in Poland and the USA. Use the form above and choose Vehicle supplier, and we'll talk about the vehicles you have and the terms.",
+  },
+  {
+    q: "When can I start?",
+    a: "We're launching first in Poland and the USA. Apply now and we'll contact you as vehicles become available in your city. If you're in another country, tell us where, and we'll let you know when we arrive.",
   },
 ];
 
@@ -57,18 +66,13 @@ export default function FAQ() {
           transition={{ duration: 0.4 }}
           className="text-center mb-7"
         >
-          <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-600">
-            FAQ
-          </span>
-
           <h2
-            className="mt-3 text-2xl sm:text-3xl font-bold tracking-tight text-slate-900"
+            className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900"
             style={{
               fontFamily: "'Bricolage Grotesque', sans-serif",
             }}
           >
-            Questions before your
-            <span className="text-[#1D4ED8]"> first ride.</span>
+            Questions before you apply
           </h2>
         </motion.div>
 

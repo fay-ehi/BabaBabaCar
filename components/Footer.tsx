@@ -2,10 +2,24 @@
 import { motion } from "framer-motion";
 import { Mail, Share2, Link2, MessageCircle } from "lucide-react";
 
-const nav = {
-  Product: ["How It Works", "Routes", "Safety", "For Drivers"],
-  Company: ["About", "Blog", "Careers", "Contact"],
-  Legal: ["Privacy Policy", "Terms of Use", "Cookie Policy"],
+const nav: Record<string, { label: string; href: string }[]> = {
+  Drivers: [
+    { label: "How it works", href: "#how" },
+    { label: "Vehicles", href: "#vehicles" },
+    { label: "Plans", href: "#plans" },
+    { label: "Apply to drive", href: "#apply" },
+  ],
+  Company: [
+    { label: "Markets", href: "#markets" },
+    { label: "Partners", href: "#partners" },
+    { label: "FAQ", href: "#faq" },
+    { label: "Contact", href: "#apply" },
+  ],
+  Legal: [
+    { label: "Privacy Policy", href: "#" },
+    { label: "Terms of Use", href: "#" },
+    { label: "Cookie Policy", href: "#" },
+  ],
 };
 
 export default function Footer() {
@@ -26,7 +40,7 @@ export default function Footer() {
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>SYNQ RIDE</span>
             </div>
             <p className="text-white/40 text-sm leading-relaxed max-w-xs mb-6">
-              Modern, verified intercity ride-sharing for Nigeria. Comfortable travel between cities, built on trust.
+              Used cars for approved ride-hailing drivers, ready to link to Uber, Bolt and other apps. Launching first in Poland and the USA.
             </p>
             <div className="flex gap-3">
               {[
@@ -49,9 +63,9 @@ export default function Footer() {
               <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-4">{category}</p>
               <ul className="space-y-3">
                 {links.map(link => (
-                  <li key={link}>
-                    <a href="#" className="text-sm text-white/55 hover:text-white transition-colors">
-                      {link}
+                  <li key={link.label}>
+                    <a href={link.href} className="text-sm text-white/55 hover:text-white transition-colors">
+                      {link.label}
                     </a>
                   </li>
                 ))}
@@ -62,10 +76,10 @@ export default function Footer() {
 
         <div className="border-t border-white/8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/30">
-            © {new Date().getFullYear()} SYNQ RIDE. All rights reserved. Made in Nigeria.
+            © {new Date().getFullYear()} SYNQ RIDE, a Bablo Group venture. All rights reserved.
           </p>
-          <p className="text-xs text-white/25 text-center sm:text-right">
-            Connecting cities. Building trust. One ride at a time.
+          <p className="text-xs text-white/25 text-center sm:text-right max-w-md">
+            Uber, Bolt, FreeNow and Lyft are trademarks of their respective owners. SYNQ RIDE is not affiliated with or endorsed by them.
           </p>
         </div>
       </div>
