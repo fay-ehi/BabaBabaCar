@@ -1,218 +1,121 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, ShieldCheck, Wrench, Car, KeyRound, HandCoins } from "lucide-react";
-import CarArt from "./CarArt";
+import { ArrowRight } from "lucide-react";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.12, duration: 0.6, ease: "easeOut" as const },
-  }),
-};
+/**
+ * HERO VIDEO
+ * Drop your file at:  public/videos/hero.mp4
+ * (H.264 MP4, no audio needed, 6–15 s loop, ideally under ~6 MB.)
+ * If the file is missing, the animated dark background below shows instead.
+ */
+const VIDEO_SRC = "/videos/hero.mp4";
 
-const platforms = ["Uber", "Bolt", "FreeNow"] as const;
+const platforms = ["Uber", "Bolt", "FreeNow", "Lyft"];
 
 export default function Hero() {
-  const [linked, setLinked] = useState<string[]>([]);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoOk, setVideoOk] = useState(true);
 
-  // One-time demo: the page loader covers the first ~1.8s, so link two apps right after it clears.
   useEffect(() => {
-    const add = (p: string) => setLinked((l) => (l.includes(p) ? l : [...l, p]));
-    const t1 = setTimeout(() => add("Uber"), 2400);
-    const t2 = setTimeout(() => add("Bolt"), 3300);
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-    };
+    const v = videoRef.current;
+    if (!v) return;
+    const fail = () => setVideoOk(false);
+    if (v.error) fail();
+    v.addEventListener("error", fail);
+    v.muted = true;
+    v.play().catch(() => {});
+    return () => v.removeEventListener("error", fail);
   }, []);
 
-  const toggle = (p: string) =>
-    setLinked((l) => (l.includes(p) ? l.filter((x) => x !== p) : [...l, p]));
-
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#EFF6FF] via-white to-[#FFFBEB]" />
-      <div className="absolute top-20 right-0 w-[600px] h-[600px] rounded-full bg-[#1D4ED8]/5 blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#F59E0B]/8 blur-3xl" />
-      <div
-        className="absolute inset-0 opacity-[0.025]"
-        style={{ backgroundImage: "radial-gradient(#1D4ED8 1px, transparent 1px)", backgroundSize: "32px 32px" }}
-      />
+    <section className="relative min-h-[100svh] flex flex-col overflow-hidden bg-[#0B1220] text-white">
+      {/* Fallback / base background (always rendered, sits under the video) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0B1220] via-[#0F1B3D] to-[#0B1220]" />
+      <div className="hero-glow absolute -top-32 -left-24 w-[640px] h-[640px] rounded-full bg-[#1D4ED8]/35 blur-3xl" />
+      <div className="hero-glow-2 absolute bottom-0 right-0 w-[520px] h-[520px] rounded-full bg-[#F59E0B]/15 blur-3xl" />
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-20 w-full">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-8 items-center">
-          {/* Left: Copy */}
-          <div className="max-w-xl">
-            <motion.div custom={0} variants={fadeUp} initial="hidden" animate="visible">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#1D4ED8]/8 text-[#1D4ED8] text-xs font-semibold rounded-full mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#1D4ED8] pulse-dot inline-block" />
-                Launching in Poland and the USA
-              </span>
-            </motion.div>
+      {/* Video */}
+      {videoOk && (
+        <video
+          ref={videoRef}
+          src={VIDEO_SRC}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover motion-reduce:hidden"
+        />
+      )}
 
-            <motion.h1
-              custom={1}
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              className="text-[2.6rem] sm:text-[3.4rem] lg:text-[3.9rem] font-extrabold text-gray-900 leading-[1.05] mb-6"
-              style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-            >
-              Get the car.
-              <br />
-              Link your apps.
-              <br />
-              Start driving.
-            </motion.h1>
+      {/* Legibility overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220]/85 via-[#0B1220]/55 to-[#0B1220]/20" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0B1220] to-transparent" />
 
-            <motion.p
-              custom={2}
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              className="text-lg text-gray-500 leading-relaxed mb-8 max-w-[480px]"
-            >
-              SYNQ RIDE gives approved drivers a used car that Bablo owns and maintains, ready to work with Uber, Bolt and
-              other ride-hailing apps. Pay weekly, and rent the car or work toward owning it.
-            </motion.p>
-
-            <motion.div
-              custom={3}
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              className="flex flex-col sm:flex-row gap-3"
-            >
-              <a
-                href="#apply"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#1D4ED8] text-white font-semibold rounded-xl hover:bg-[#1e40af] transition-all duration-200 shadow-md hover:shadow-[0_8px_25px_-5px_rgba(29,78,216,0.4)] group"
-              >
-                Apply to drive
-                <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-              </a>
-              <a
-                href="#partners"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-gray-800 font-semibold rounded-xl border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all duration-200 shadow-sm"
-              >
-                I have cars to supply
-              </a>
-            </motion.div>
-
-            <motion.ul
-              custom={4}
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              className="mt-10 flex flex-wrap gap-x-7 gap-y-3"
-            >
-              {[
-                { icon: HandCoins, text: "No car to buy" },
-                { icon: ShieldCheck, text: "We handle onboarding" },
-                { icon: KeyRound, text: "Own it later" },
-              ].map(({ icon: Icon, text }) => (
-                <li key={text} className="flex items-center gap-2.5 text-sm text-gray-600 font-medium">
-                  <span className="w-8 h-8 rounded-lg bg-white border border-gray-100 shadow-sm flex items-center justify-center flex-shrink-0">
-                    <Icon size={15} className="text-[#1D4ED8]" />
-                  </span>
-                  {text}
-                </li>
-              ))}
-            </motion.ul>
-          </div>
-
-          {/* Right: vehicle card — tap a platform to link it */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex justify-center lg:justify-end"
+      {/* Content */}
+      <div className="relative flex-1 flex items-center max-w-6xl w-full mx-auto px-4 sm:px-6 pt-40 pb-16">
+        <div className="max-w-3xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="text-[2.6rem] sm:text-6xl lg:text-7xl font-semibold leading-[1.04] tracking-tight"
           >
-            <div className="relative w-[320px] sm:w-[370px]">
-              <div className="bg-white rounded-3xl shadow-[0_20px_60px_-10px_rgba(0,0,0,0.12)] border border-gray-100 p-5">
-                <div className="flex items-start justify-between mb-3">
-                  <div>
-                    <p className="text-xs text-gray-400 font-medium">Owned by Bablo</p>
-                    <p
-                      className="text-base font-bold text-gray-900"
-                      style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                    >
-                      Hybrid sedan
-                    </p>
-                  </div>
-                  <span className="text-[10px] font-medium text-gray-400 border border-gray-200 rounded-full px-2 py-0.5">
-                    Illustrative preview
-                  </span>
-                </div>
+            Get the car.
+            <br />
+            Link your apps.
+            <br />
+            Start driving.
+          </motion.h1>
 
-                <div className="bg-[#EFF6FF] rounded-2xl px-4 pt-5 pb-3 mb-3">
-                  <CarArt variant="sedan" className="w-full h-auto" />
-                </div>
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.12, ease: "easeOut" }}
+            className="mt-6 text-lg sm:text-xl text-white/75 leading-relaxed max-w-xl"
+          >
+            SYNQ RIDE gives approved drivers a used car that Bablo owns and maintains, ready to work with Uber, Bolt and
+            other ride-hailing apps. Launching in Poland and the USA.
+          </motion.p>
 
-                <div className="flex gap-2 mb-5">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-medium text-gray-600 bg-gray-50 rounded-lg px-2.5 py-1.5">
-                    <ShieldCheck size={13} className="text-[#15803D]" /> Inspected
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-medium text-gray-600 bg-gray-50 rounded-lg px-2.5 py-1.5">
-                    <Wrench size={13} className="text-[#1D4ED8]" /> Serviced for you
-                  </span>
-                </div>
-
-                <p className="text-xs font-semibold text-gray-500 mb-2">Link your platforms</p>
-                <div className="space-y-2">
-                  {platforms.map((p) => {
-                    const on = linked.includes(p);
-                    return (
-                      <div
-                        key={p}
-                        className="flex items-center justify-between rounded-xl border border-gray-100 px-3 py-2.5"
-                      >
-                        <div className="flex items-center gap-2.5">
-                          <span className="w-7 h-7 rounded-lg bg-gray-900 text-white text-xs font-bold flex items-center justify-center">
-                            {p[0]}
-                          </span>
-                          <span className="text-sm font-semibold text-gray-900">{p}</span>
-                        </div>
-                        <button
-                          type="button"
-                          role="switch"
-                          aria-checked={on}
-                          aria-label={`${on ? "Unlink" : "Link"} ${p}`}
-                          onClick={() => toggle(p)}
-                          className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold transition-colors duration-200 ${
-                            on ? "bg-[#DCFCE7] text-[#15803D]" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                          }`}
-                        >
-                          {on && <Check size={12} />}
-                          {on ? "Linked" : "Link"}
-                        </button>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                <div
-                  aria-live="polite"
-                  className={`mt-4 rounded-xl px-3.5 py-3 text-sm font-semibold flex items-center gap-2 transition-colors duration-300 ${
-                    linked.length ? "bg-[#1D4ED8] text-white" : "bg-gray-50 text-gray-500"
-                  }`}
-                >
-                  <Car size={16} />
-                  {linked.length
-                    ? `Ready to drive · ${linked.length} ${linked.length === 1 ? "app" : "apps"} linked`
-                    : "Link an app to get started"}
-                </div>
-              </div>
-
-            </div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.24, ease: "easeOut" }}
+            className="mt-9 flex flex-col sm:flex-row gap-3"
+          >
+            <a
+              href="#apply"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-gray-900 font-semibold rounded-xl hover:bg-white/90 transition-colors group"
+            >
+              Apply to drive
+              <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+            </a>
+            <a
+              href="#partners"
+              className="inline-flex items-center justify-center px-7 py-3.5 font-semibold rounded-xl border border-white/40 text-white hover:bg-white/10 transition-colors"
+            >
+              Supply vehicles
+            </a>
           </motion.div>
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
+      {/* Platforms */}
+      <div className="relative border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8">
+          <p className="text-sm text-white/55">Your car links to the apps you already drive for</p>
+          <ul className="flex flex-wrap gap-x-8 gap-y-1">
+            {platforms.map((p) => (
+              <li key={p} className="text-base font-semibold text-white/80">
+                {p}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </section>
   );
 }

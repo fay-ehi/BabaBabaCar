@@ -78,7 +78,7 @@ export default function Apply() {
   const label = "block text-xs font-semibold text-gray-500 mb-2";
 
   return (
-    <section id="apply" className="bg-[#FAFAFA] py-20 sm:py-28">
+    <section id="apply" className="bg-white py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-16 items-start">
           {/* Left: copy */}
@@ -89,8 +89,7 @@ export default function Apply() {
             transition={{ duration: 0.6 }}
           >
             <h2
-              className="text-[2rem] sm:text-[2.6rem] font-extrabold text-gray-900 mb-5 leading-[1.1] text-balance"
-              style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+              className="text-3xl sm:text-5xl font-semibold tracking-tight text-gray-900 mb-5 leading-[1.1] text-balance"
             >
               Apply to drive, or partner with us
             </h2>
@@ -111,6 +110,18 @@ export default function Apply() {
                 </div>
               ))}
             </div>
+
+            <p className="mt-8 text-sm text-gray-500">
+              Prefer to talk?{" "}
+              <a
+                href="https://wa.me/2347039968323?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20SYNQ%20RIDE"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-[#1D4ED8] underline underline-offset-4"
+              >
+                Message us on WhatsApp
+              </a>
+            </p>
           </motion.div>
 
           {/* Right: form */}
@@ -126,8 +137,7 @@ export default function Apply() {
                   <CheckCircle2 size={32} className="text-[#15803D]" />
                 </div>
                 <h3
-                  className="text-2xl font-extrabold text-gray-900 mb-3"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                  className="text-2xl font-semibold text-gray-900 mb-3"
                 >
                   Thanks, we have your details
                 </h3>

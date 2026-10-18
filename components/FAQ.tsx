@@ -67,10 +67,7 @@ export default function FAQ() {
           className="text-center mb-7"
         >
           <h2
-            className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900"
-            style={{
-              fontFamily: "'Bricolage Grotesque', sans-serif",
-            }}
+            className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900"
           >
             Questions before you apply
           </h2>

@@ -6,14 +6,13 @@ const nav: Record<string, { label: string; href: string }[]> = {
   Drivers: [
     { label: "How it works", href: "#how" },
     { label: "Vehicles", href: "#vehicles" },
-    { label: "Plans", href: "#plans" },
     { label: "Apply to drive", href: "#apply" },
   ],
   Company: [
-    { label: "Markets", href: "#markets" },
     { label: "Partners", href: "#partners" },
+    { label: "Markets", href: "#markets" },
     { label: "FAQ", href: "#faq" },
-    { label: "Contact", href: "#apply" },
+    { label: "WhatsApp", href: "https://wa.me/2347039968323" },
   ],
   Legal: [
     { label: "Privacy Policy", href: "#" },
@@ -36,8 +35,7 @@ export default function Footer() {
                   <circle cx="8" cy="3.5" r="1.5" fill="#F59E0B"/>
                 </svg>
               </div>
-              <span className="font-extrabold text-white text-lg"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>SYNQ RIDE</span>
+              <span className="font-extrabold text-white text-lg">SYNQ RIDE</span>
             </div>
             <p className="text-white/40 text-sm leading-relaxed max-w-xs mb-6">
               Used cars for approved ride-hailing drivers, ready to link to Uber, Bolt and other apps. Launching first in Poland and the USA.
@@ -64,7 +62,11 @@ export default function Footer() {
               <ul className="space-y-3">
                 {links.map(link => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-sm text-white/55 hover:text-white transition-colors">
+                    <a
+                      href={link.href}
+                      {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      className="text-sm text-white/55 hover:text-white transition-colors"
+                    >
                       {link.label}
                     </a>
                   </li>
