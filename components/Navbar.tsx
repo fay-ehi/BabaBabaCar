@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
-import Image from "next/image";
 
 const links = [
   { label: "How it works", href: "#how" },
@@ -52,20 +51,8 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-between h-16">
-            <a href="#" className="flex items-center gap-3" aria-label="SYNQ RIDE home">
-              <span className={`rounded-lg px-1.5 py-1 ${solid ? "" : "bg-white"} transition-colors`}>
-                <Image src="/logo.png" alt="" width={44} height={23} className="object-contain" priority />
-              </span>
-              <span
-                className={`text-lg font-bold tracking-tight transition-colors ${
-                  solid ? "text-gray-900" : "text-white"
-                }`}
-              >
-                SYNQ RIDE
-              </span>
-            </a>
-
+          <div className="grid grid-cols-[1fr_auto_1fr] items-center h-16">
+            <div aria-hidden />
             <nav className="hidden lg:flex items-center gap-1" aria-label="Main">
               {links.map((l) => (
                 <a
@@ -82,7 +69,7 @@ export default function Navbar() {
               ))}
             </nav>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-end gap-3 col-start-3">
               <a
                 href="#apply"
                 className={`hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
